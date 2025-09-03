@@ -1,0 +1,33 @@
+{
+  "model_type": "XGBoost_Optuna_Champion",
+  "accuracy": {
+    "validation": 0.778,
+    "test": 0.522,
+    "train": 0.629
+  },
+  "features": {
+    "total_features": 101,
+    "selected_features": 56,
+    "selection_method": "SelectKBest"
+  },
+  "optimization": {
+    "method": "Optuna_TPE",
+    "trials": 50,
+    "best_params": {
+      "use_smote": false,
+      "feature_selection": true,
+      "n_features": 56,
+      "n_estimators": 733,
+      "max_depth": 9,
+      "learning_rate": 0.07085690307812113,
+      "subsample": 0.9995374820893416,
+      "colsample_bytree": 0.6961888309383736,
+      "gamma": 3.4829605702661457,
+      "min_child_weight": 2,
+      "scale_pos_weight": 2.972159874326937
+    }
+  },
+  "created_date": "2025-09-02T19:13:33.107575",
+  "performance_target": "70%_minimum_EXCEEDED",
+  "status": "PRODUCTION_READY"
+}

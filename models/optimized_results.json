@@ -1,0 +1,14 @@
+{
+  "model_name": "Conservative XGBoost",
+  "cv_score": 0.39960196991162383,
+  "train_accuracy": 0.7670221493027072,
+  "test_accuracy": 0.4885245901639344,
+  "tickers": [
+    "RR",
+    "TTWO",
+    "VWRL.L"
+  ],
+  "num_features": 401,
+  "train_samples": 1219,
+  "test_samples": 305
+}

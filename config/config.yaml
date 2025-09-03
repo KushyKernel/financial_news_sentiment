@@ -1,0 +1,113 @@
+# Configuration for Financial News Sentiment Analysis
+project:
+  name: "financial-news-sentiment"
+  version: "1.0.0"
+  description: "ML system for predicting stock movements using news sentiment"
+
+# API Configuration
+apis:
+  alpha_vantage:
+    base_url: "https://www.alphavantage.co/query"
+    # Add your API key to .env file as ALPHA_VANTAGE_API_KEY
+  
+  financial_modeling_prep:
+    base_url: "https://financialmodelingprep.com/api/v3"
+    # Add your API key to .env file as FMP_API_KEY
+
+# Data Configuration
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  external_path: "data/external/"
+  tickers: ["ASML", "TTWO", "RR", "AMD", "GEV", "GD", "UBER"]
+  lookback_days: 90
+  
+# Date Configuration
+dates:
+  start_date: "2022-01-01"
+  end_date: "2024-08-31"
+  timezone: "US/Eastern"  # NYSE timezone
+
+# Feature Engineering
+features:
+  sentiment_models:
+    - "vader"
+    - "textblob" 
+    - "finbert"
+  
+  text_features:
+    tfidf_max_features: 1000
+    ngram_range: [1, 2]
+    min_df: 2
+  
+  technical_indicators:
+    - "sma_5"
+    - "sma_10"
+    - "rsi_14"
+    - "volume_change"
+  
+  lag_features:
+    sentiment_lags: [1, 3, 5]
+
+# Target Variables
+targets:
+  binary_threshold: 0.0  # For up/down classification
+  multiclass_thresholds: [-0.005, 0.005]  # For up/flat/down classification
+  returns_horizon: [1, 3]  # Days ahead for return prediction
+
+# Model Configuration
+models:
+  train_test_split:
+    train_ratio: 0.7
+    val_ratio: 0.15
+    test_ratio: 0.15
+  
+  algorithms:
+    - "logistic_regression"
+    - "random_forest"
+    - "xgboost"
+    - "lstm"
+    - "transformer"
+  
+  cross_validation:
+    n_splits: 5
+    gap: 5  # Days gap for time series CV
+
+# Training Configuration
+training:
+  random_state: 42
+  hyperparameter_tuning: true
+  optuna_trials: 100
+  early_stopping_rounds: 10
+
+# Evaluation Configuration
+evaluation:
+  metrics:
+    classification: ["accuracy", "precision", "recall", "f1", "roc_auc"]
+    regression: ["mae", "rmse", "r2"]
+    financial: ["sharpe_ratio", "max_drawdown", "cumulative_return"]
+  
+  backtesting:
+    long_threshold: 0.6
+    short_threshold: 0.4
+    transaction_cost: 0.001  # 0.1%
+    initial_capital: 100000
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/financial_sentiment.log"
+
+# Model Persistence
+model_storage:
+  base_path: "models/"
+  format: "joblib"  # or "pickle"
+  
+# API Deployment
+deployment:
+  api:
+    host: "0.0.0.0"
+    port: 8000
+    debug: false
+  model_path: "models/best_model.joblib"

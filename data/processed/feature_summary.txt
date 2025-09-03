@@ -1,0 +1,47 @@
+======================================================================
+FINANCIAL NEWS SENTIMENT ANALYSIS - FEATURE SUMMARY
+======================================================================
+
+DATASET OVERVIEW:
+  Total observations: 1,524
+  Total features: 415
+  Date range: 2022-01-06 00:00:00 to 2024-08-29 00:00:00
+  Tickers: RR, TTWO, VWRL.L
+
+FEATURE CATEGORIES:
+  Sentiment Features: 325 features
+  Technical Features: 33 features
+  Text Features: 0 features
+  Temporal Features: 18 features
+  Lag Features: 237 features
+  Interaction Features: 2 features
+  Target Variables: 8 features
+
+DATA QUALITY:
+  Overall missing values: 0.00%
+  Complete cases: 1,512
+
+TARGET VARIABLES:
+  target_return_1d: Mean=0.0005, Std=0.0463
+  target_return_3d: Mean=0.0017, Std=0.0811
+  target_direction_1d: Up=777, Down=747
+
+TOP FEATURES (correlation with target_return_1d):
+  daily_return: 0.1289
+  price_change_1d: 0.1289
+  volume_sma_10: 0.1268
+  volume_ratio_lag_1: 0.1264
+  price_vs_sma_20: 0.1095
+  return_lag_1: 0.1008
+  high_low_ratio_10d: 0.0798
+  sentiment_volatility_interaction: 0.0777
+  price_vs_sma_50: 0.0707
+
+DATASET STATISTICS:
+  Memory usage: 5.35 MB
+  Average features per observation: 415
+
+======================================================================
+Feature engineering completed! Dataset ready for modeling.
+Next step: run model training pipeline
+======================================================================

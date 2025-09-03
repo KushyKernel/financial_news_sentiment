@@ -1,0 +1,195 @@
+advanced:
+  cache_features: true
+  debug_mode: false
+  deterministic_mode: false
+  profiling: false
+  set_random_seeds: true
+  use_ensemble: true
+  use_gpu: false
+  use_meta_features: false
+  use_stacking: false
+apis:
+  alpha_vantage_key: your_alpha_vantage_key_here
+  financial_modeling_prep_key: your_fmp_key_here
+  max_retries: 3
+  rate_limit_delay: 1.0
+data:
+  end_date: '2024-01-01'
+  external_path: data/external/
+  max_days_gap: 7
+  min_news_per_day: 1
+  news_sources:
+  - alpha_vantage
+  - financial_modeling_prep
+  price_source: yfinance
+  processed_path: data/processed/
+  raw_path: data/raw/
+  start_date: '2023-01-01'
+  ticker_info:
+    RR: Richtech Robotics Inc.
+    TTWO: Take-Two Interactive (Gaming)
+    VWRL.L: Vanguard FTSE All-World ETF (London Exchange)
+    VWRL: Vanguard FTSE All-World
+  tickers:
+  - TTWO
+  - RR
+  - VWRL.L
+deployment:
+  alert_thresholds:
+    accuracy_drop: 0.05
+    error_rate: 0.1
+  api_host: localhost
+  api_port: 8000
+  database_url: sqlite:///financial_sentiment.db
+  log_predictions: true
+evaluation:
+  benchmark_tickers:
+  - SPY
+  classification_metrics:
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+  - roc_auc
+  financial_metrics:
+  - total_return
+  - annual_return
+  - sharpe_ratio
+  - sortino_ratio
+  - max_drawdown
+  - calmar_ratio
+  - win_rate
+  - information_ratio
+  risk_free_rate: 0.02
+features:
+  feature_selection_method: mutual_info
+  finbert_model: ProsusAI/finbert
+  max_df: 0.95
+  max_features: 200
+  min_df: 2
+  ngram_range:
+  - 1
+  - 2
+  price_lags:
+  - 1
+  - 2
+  - 3
+  - 5
+  sentiment_lags:
+  - 1
+  - 2
+  - 3
+  - 5
+  sentiment_models:
+  - vader
+  - textblob
+  - finbert
+  technical_indicators:
+  - sma_5
+  - sma_10
+  - sma_20
+  - ema_12
+  - ema_26
+  - rsi_14
+  - macd
+  - bb_upper
+  - bb_lower
+  - volume_sma
+  - volume_change
+  tfidf_max_features: 1000
+  use_finbert: true
+logging:
+  backup_count: 5
+  data_log: logs/data.log
+  date_format: '%Y-%m-%d %H:%M:%S'
+  evaluation_log: logs/evaluation.log
+  features_log: logs/features.log
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  level: INFO
+  main_log: logs/main.log
+  max_file_size: 10MB
+  models_log: logs/models.log
+  pipeline_log: logs/pipeline.log
+models:
+  gradient_boosting:
+    learning_rate: 0.1
+    max_depth: 6
+    n_estimators: 100
+    subsample: 0.8
+  logistic:
+    C: 1.0
+    class_weight: balanced
+    max_iter: 1000
+    solver: liblinear
+  random_forest:
+    class_weight: balanced
+    max_depth: 10
+    max_features: sqrt
+    min_samples_leaf: 2
+    min_samples_split: 5
+    n_estimators: 100
+  svm:
+    C: 1.0
+    class_weight: balanced
+    gamma: scale
+    kernel: rbf
+  xgboost:
+    colsample_bytree: 0.8
+    learning_rate: 0.1
+    max_depth: 6
+    n_estimators: 100
+    reg_alpha: 0.1
+    reg_lambda: 0.1
+    subsample: 0.8
+output:
+  export_formats:
+  - csv
+  - json
+  - pickle
+  model_path: models/trained/
+  plots_path: reports/plots/
+  reports_path: reports/
+pipeline:
+  chunk_size: 10000
+  collect_new_data: true
+  low_memory_mode: false
+  n_jobs: -1
+  overwrite_existing: false
+  save_intermediate: true
+targets:
+  direction_threshold: 0.0
+  multiclass_thresholds:
+  - -0.02
+  - 0.02
+  predict_returns: true
+  predict_volatility: true
+  returns_horizon:
+  - 1
+  - 3
+  - 5
+trading:
+  long_threshold: 0.6
+  max_position_size: 1.0
+  position_sizing: equal_weight
+  rebalance_frequency: daily
+  short_threshold: 0.4
+  slippage: 0.0005
+  stop_loss: 0.05
+  take_profit: 0.1
+  transaction_cost: 0.001
+training:
+  cross_validation: true
+  cv_folds: 5
+  cv_method: time_series
+  models:
+  - logistic_regression
+  - random_forest
+  - xgboost
+  - gradient_boosting
+  - svm
+  optimization_timeout: 3600
+  optimization_trials: 50
+  optimize_hyperparameters: true
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.15

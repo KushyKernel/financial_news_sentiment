@@ -1,0 +1,27 @@
+============================================================
+FINANCIAL NEWS SENTIMENT ANALYSIS - DATA SUMMARY
+============================================================
+
+DATASET OVERVIEW:
+  Total observations: 1,536
+  Date range: 2022-01-03 to 2024-08-30
+  Number of tickers: 3
+  Tickers: RR, TTWO, VWRL.L
+
+DATA QUALITY:
+  Missing values: 4.28%
+  Complete cases: 485
+
+NEWS COVERAGE:
+  Days with news: 31.6%
+  Avg articles per news day: 1.0
+
+BY TICKER BREAKDOWN:
+  RR: 197 observations
+  TTWO: 669 observations
+  VWRL.L: 670 observations
+
+============================================================
+Data is ready for feature engineering!
+Next step: run src/features/build_features.py
+============================================================

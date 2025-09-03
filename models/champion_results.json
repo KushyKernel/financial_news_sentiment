@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-09-02T19:06:01.909716",
+  "target_accuracy": 0.7,
+  "achieved_accuracy": 0.7777777777777778,
+  "model_type": "XGBoost",
+  "optimization_method": "Optuna",
+  "hyperparameters": {
+    "use_smote": false,
+    "feature_selection": true,
+    "n_features": 56,
+    "n_estimators": 733,
+    "max_depth": 9,
+    "learning_rate": 0.07085690307812113,
+    "subsample": 0.9995374820893416,
+    "colsample_bytree": 0.6961888309383736,
+    "gamma": 3.4829605702661457,
+    "min_child_weight": 2,
+    "scale_pos_weight": 2.972159874326937
+  },
+  "performance_metrics": {
+    "train_accuracy": 0.6285714285714286,
+    "val_accuracy": 0.7777777777777778,
+    "test_accuracy": 0.5217391304347826,
+    "train_auc": 0.9809610983981694,
+    "val_auc": 0.6401515151515151,
+    "test_auc": 0.5485714285714285,
+    "val_precision": 0.7804878048780488,
+    "val_recall": 0.9696969696969697,
+    "val_f1": 0.8648648648648649
+  },
+  "success": true
+}

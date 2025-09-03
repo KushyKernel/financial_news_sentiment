@@ -1,0 +1,12 @@
+{
+  "tickers": [
+    "RR",
+    "TTWO",
+    "VWRL.L"
+  ],
+  "train_accuracy": 1.0,
+  "test_accuracy": 0.4721311475409836,
+  "train_samples": 1219,
+  "test_samples": 305,
+  "num_features": 401
+}
